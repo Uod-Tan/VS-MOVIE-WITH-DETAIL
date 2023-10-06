@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ASD.Models.Movie>
+
+@{
+    ViewBag.Title = "Movie"; 
+}
+
+<h2>Movies</h2>
+
+@if (!Model.Any())
+{
+    <p>Sorry we don't have any customers right now'</p>
+}
+else
+{
+    <table class="table table-boarded table-hover">
+
+        <thred>
+            <tr>
+                <th>Movies</th>
+            </tr>
+        </thred>
+
+        <tbody>
+            @foreach (var movie in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(movie.Name, "Details", "Movie", new{id = movie.Id},null)</td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+}
